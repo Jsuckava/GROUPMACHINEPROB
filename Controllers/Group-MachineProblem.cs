@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using MachineProblem1.Models;
 
-namespace MachineProblem3.Controller;
+namespace MachineProblem.Controller;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CrudforMachineProb3 : ControllerBase
+public class CrudforMachineProb : ControllerBase
 {
     private readonly TeachersDbContext _context;
 

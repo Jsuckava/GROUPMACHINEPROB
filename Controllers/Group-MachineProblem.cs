@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MachineProblem1.Models;
+// using MachineProblem1.Models; // Baguhin pag Device nyo na
 
 namespace MachineProblem.Controller;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace MachineProblem1.Models;
+// namespace MachineProblem1.Models; // - Magbabago Pag sa Device nyo na nagscaffolding
 
 public partial class TeachersDbContext : DbContext
 {

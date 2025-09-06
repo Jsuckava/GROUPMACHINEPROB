@@ -10,7 +10,7 @@ public class CrudforMachineProb : ControllerBase
 {
     private readonly TeachersDbContext _context;
 
-    public CrudforMachineProb3(TeachersDbContext context) => _context = context;
+    public CrudforMachineProb(TeachersDbContext context) => _context = context;
 
     [HttpGet]
     public async Task<IEnumerable<TblTeacher>> GetAll() =>

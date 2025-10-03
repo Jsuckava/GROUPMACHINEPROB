@@ -18,34 +18,34 @@ public class RecipesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CookBook_RecipeReadMapper>>> GetAll()
+    public async Task<ActionResult<IEnumerable<CookBook_RecipeReadDTO>>> GetAll()
     {
         var recipes = await _context.RecipesTB.ToListAsync();
-        var result = _mapper.Map<IEnumerable<CookBook_RecipeReadMapper>>(recipes);
+        var result = _mapper.Map<IEnumerable<CookBook_RecipeReadDTO>>(recipes);
         return Ok(result);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<CookBook_RecipeReadMapper>> GetById(int id)
+    public async Task<ActionResult<CookBook_RecipeReadDTO>> GetById(int id)
     {
         var recipe = await _context.RecipesTB.FindAsync(id);
         if (recipe is null) return NotFound();
-        return Ok(_mapper.Map<CookBook_RecipeReadMapper>(recipe));
+        return Ok(_mapper.Map<CookBook_RecipeReadDTO>(recipe));
     }
 
     [HttpPost]
-    public async Task<ActionResult<CookBook_RecipeReadMapper>> Create(CookBook_RecipeCreateMapper recipeDto)
+    public async Task<ActionResult<CookBook_RecipeReadDTO>> Create(CookBook_RecipeCreateDTO recipeDto)
     {
         var recipe = _mapper.Map<CookBookRecipe_Tbl>(recipeDto);
         _context.RecipesTB.Add(recipe);
         await _context.SaveChangesAsync();
 
-        var readDto = _mapper.Map<CookBook_RecipeReadMapper>(recipe);
+        var readDto = _mapper.Map<CookBook_RecipeReadDTO>(recipe);
         return CreatedAtAction(nameof(GetById), new { id = recipe.Id }, readDto);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, CookBook_RecipeUpdateMapper recipeDto)
+    public async Task<IActionResult> Update(int id, CookBook_RecipeUpdateDTO recipeDto)
     {
         var recipe = await _context.RecipesTB.FindAsync(id);
         if (recipe is null) return NotFound();

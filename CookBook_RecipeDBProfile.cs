@@ -6,9 +6,10 @@ namespace MachineProblem1.Profiles
     public class CookBook_RecipeDBProfile : Profile
     {
         public CookBook_RecipeDBProfile() {
-            CreateMap<CookBookRecipe_Tbl, CookBook_RecipeReadMapper>();
-            CreateMap<CookBook_RecipeCreateMapper, CookBookRecipe_Tbl>();
-            CreateMap<CookBook_RecipeUpdateMapper, CookBookRecipe_Tbl>();
+            CreateMap<CookBookRecipe_Tbl, CookBook_RecipeReadDTO>();
+            CreateMap<CookBook_RecipeCreateDTO, CookBookRecipe_Tbl>();
+            CreateMap<CookBook_RecipeUpdateDTO, CookBookRecipe_Tbl>();
         }
     }
+
 }
